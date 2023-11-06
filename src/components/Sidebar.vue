@@ -24,7 +24,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
             </svg>
         </button>
-        <RouterLink v-for="i in 10" :to="'/stremer'+i" class="flex hover:bg-gray-700 px-2 py-2 items-center">
+        <RouterLink v-for="i in 10" :to="'/streamer'+i" class="flex hover:bg-gray-700 px-2 py-2 items-center">
             <div class="h-8 w-8 bg-gray-500 rounded-full"></div>
             <div :class="collapse?'lg:hidden':'lg:block'" class="text-left ml-2 leading-4 hidden">
                 <span class="block">Streamer {{ i }}</span>
