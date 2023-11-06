@@ -11,7 +11,7 @@
 import Chat from './components/Chat.vue'
 import Navbar from './components/Navbar.vue'
 import Sidebar from './components/Sidebar.vue'
-import { RouterView, RouterLink } from 'vue-router'
+import { RouterView } from 'vue-router'
 </script>
 
 <style scoped>
