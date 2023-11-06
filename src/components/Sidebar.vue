@@ -1,5 +1,5 @@
 <template>
-    <div :class="collapse?'lg:w-14 lg:items-center':'lg:items-stretch'" class="lg:w-60 w-14 items-center bg-gray-800 h-[calc(100vh-4rem)] text-white flex flex-col overflow-y-auto">
+    <div :class="collapse?'lg:w-14 lg:items-center':'lg:items-stretch lg:w-60'" class="w-14 items-center bg-gray-800 h-[calc(100vh-4rem)] text-white flex flex-col overflow-y-auto">
         <div class="lg:flex hidden p-2 text-xl font-medium">
             <h1 :class="collapse?'hidden':''">For You</h1>
             <div :class="collapse?'hidden':''" class="grow"></div>
