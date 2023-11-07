@@ -1,7 +1,7 @@
 <template>
   <Navbar></Navbar>
   <div class="flex overflow-auto">
-    <Sidebar></Sidebar>
+    <Sidebar class="z-50"></Sidebar>
     <RouterView class="grow h-[calc(100vh-4rem)]"></RouterView>
     <Chat v-if="$route.params.username"></Chat>
   </div>

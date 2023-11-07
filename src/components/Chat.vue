@@ -1,7 +1,7 @@
 <template>
     <div class="w-[21rem] hidden md:flex md:flex-col bg-gray-800 h-[calc(100vh-4rem)] p-2">
         <div class="overflow-x-auto h-full" id="scroll2">
-            <h1 v-for="message in arr">{{ message.message }}</h1>
+            <h1 v-for="message in arr">curuser: {{ message.message }}</h1>
             <div class="grow"></div>
         </div>
         <input type="text" v-model="input" @keyup.enter="sendmessage" class="bg-gray-800 outline-none border hover:border-gray-300 ring-violet-500 focus:ring-2 focus:ring focus:border-violet-500 rounded py-1.5 px-6 border-gray-400 my-2 transition-all">
