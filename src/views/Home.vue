@@ -1,5 +1,5 @@
 <template>
-    <div class="">
+    <div class="bg-gray-700">
         <div class="relative hidden md:block mx-5 h-[30rem]">
             <button @click="goRight" class="absolute top-0 bottom-0 right-0 z-40">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
