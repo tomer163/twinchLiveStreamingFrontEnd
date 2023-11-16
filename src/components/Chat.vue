@@ -1,5 +1,5 @@
 <template>
-    <div class="w-[21rem] hidden md:flex md:flex-col bg-gray-800 h-[calc(100vh-4rem)] p-2">
+    <div class="w-[21rem] hidden md:flex md:flex-col bg-gray-800 h-[calc(100svh-4rem)] p-2">
         <div class="overflow-x-auto h-full" id="scroll2">
             <h1 v-for="message in arr">curuser: {{ message.message }}</h1>
             <div class="grow"></div>
