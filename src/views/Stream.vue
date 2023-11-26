@@ -37,7 +37,7 @@
                     <div class="flex">
                         <h1 class="font-medium text-lg">{{ $route.params.username }}</h1>
                         <div class="grow"></div>
-                        <button class="py-1 px-2 bg-violet-500 hover:bg-violet-600 rounded">Subscribe</button>
+                        <button class="py-1 px-2 bg-violet-500 hover:bg-violet-600 rounded">Follow</button>
                     </div>
                     <div class="flex">
                         <p>description</p>

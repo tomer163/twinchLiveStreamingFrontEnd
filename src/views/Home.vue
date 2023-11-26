@@ -15,11 +15,15 @@
                 </svg>
             </button>
         </div>
+        <div v-for="user in users" class="flex">
+            {{ user.username }}
+        </div>
     </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import axios from '../util/axios.js';
+import { ref,onBeforeMount } from 'vue'
 
 
 const array = ref([
@@ -43,6 +47,17 @@ function goRight(){
 
 setInterval(()=>{
     goRight()
-},10000)
+},15000)
 
+
+const users = ref()
+
+onBeforeMount(async()=>{
+    try{
+        const res = await axios.get('/users')
+        users.value = res.data
+    } catch(err){
+
+    }
+})
 </script>

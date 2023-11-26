@@ -14,9 +14,9 @@
                 </svg>
             </button>
         </div>
-        <button :class="collapse?'lg:hidden':'lg:flex'" class="hidden p-2 items-center hover:bg-gray-700">
+        <button v-if="!unlogged" :class="collapse?'lg:hidden':'lg:flex'" class="hidden p-2 items-center hover:bg-gray-700">
             <div>
-                <h1 class="text-sm font-medium">FOLLOWED CHANNELS</h1>
+                <h1 class="text-sm font-medium text-left">FOLLOWED CHANNELS</h1>
                 <h1 class="font-thin text-gray-400">Viewers (high to Low)</h1>
             </div>
             <div class="grow"></div>
@@ -24,10 +24,20 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
             </svg>
         </button>
-        <RouterLink v-for="i in 10" :to="'/streamer'+i" class="flex hover:bg-gray-700 px-2 py-2 items-center">
+        <button v-else :class="collapse?'lg:hidden':'lg:flex'" class="hidden p-2 items-center hover:bg-gray-700">
+            <div>
+                <h1 class="text-sm font-medium text-left">ALL CHANNELS</h1>
+                <h1 class="font-thin text-gray-400">Viewers (high to Low)</h1>
+            </div>
+            <div class="grow"></div>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5m13.5 0L16.5 21m0 0L12 16.5m4.5 4.5V7.5" />
+            </svg>
+        </button>
+        <RouterLink v-for="i in follows" :to="'/'+i.username" class="flex hover:bg-gray-700 px-2 py-2 items-center">
             <div class="h-8 w-8 bg-gray-500 rounded-full"></div>
             <div :class="collapse?'lg:hidden':'lg:block'" class="text-left ml-2 leading-4 hidden">
-                <span class="block">Streamer {{ i }}</span>
+                <span class="block">{{ i.username }}</span>
                 <span class="block text-gray-400">CATEGORY</span>
             </div>
             <div :class="collapse?'lg:hidden':'lg:block'" class="grow hidden"></div>
@@ -42,8 +52,29 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref,onBeforeMount } from 'vue'
 import { RouterLink } from 'vue-router'
+import axios from '../util/axios.js'
 
 const collapse = ref(false)
+
+const follows = ref()
+
+const unlogged = ref(false)
+
+onBeforeMount(async()=>{
+    try{
+        const res = await axios.get('/myfollows')
+        follows.value = res.data
+    } catch(err){
+        try{
+            unlogged.value = true
+            const res = await axios.get('/users')
+            follows.value = res.data
+        }
+        catch(err){
+            alert('server problem :(')
+        }
+    }
+})
 </script>

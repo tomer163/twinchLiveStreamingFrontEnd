@@ -26,7 +26,7 @@ const config = {
 onMounted(()=>{
     if(Hls.isSupported()){
         hls = new Hls(config)
-        hls.loadSource(`http://localhost:8000/live/${route.params.username}/index.m3u8`)
+        hls.loadSource(`http://localhost:8000/${route.params.username}.m3u8`)
         hls.attachMedia(video.value)
     }
     emit('player', video)
